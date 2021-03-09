@@ -412,6 +412,8 @@ function replay (){
 
   packItem3 = 0;
   
+   packItem4 = 0;
+  
   score = 0;
   
   alien.y = 300;
