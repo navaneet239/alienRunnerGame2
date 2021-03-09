@@ -158,7 +158,7 @@ function draw() {
 
     text("the gold, silver and bronze coins and the diamond to boost your power packs. if you go to the devil", 10, 85, fill("white"),textSize(17.5));
 
-    text("your score and coin power packs will become zero but", 10, 100, fill("white"),textSize(17.5));
+    text("your score and the power packs will become zero but", 10, 100, fill("white"),textSize(17.5));
 
     text("if you go to the skull,", 10, 115, fill("white"),textSize(17.5));
 
