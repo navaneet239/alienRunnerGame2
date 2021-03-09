@@ -1,6 +1,6 @@
 var SET = 0,
-  PLAY = 1,
-  END = 2;
+  PLAY  = 1,
+  END   = 2;
 var gameState = SET;
 
 var bk, bkk;
@@ -22,19 +22,19 @@ var coin2, coinbk2, coinGroup2;
 var diamond, diamondbk, diamondGroup;
 
 
-var pack, packItem = 0,
+var pack, packItem     = 0,
   packbk;
 
-var pack2, packItem2 = 0,
+var pack2, packItem2   = 0,
   packbk2;
 
-var pack3, packItem3 = 0,
+var pack3, packItem3   = 0,
   packbk3;
 
-var pack4, packItem4 = 0,
+var pack4, packItem4   = 0,
 packbk4;
 
-var score = 0;
+var score              = 0;
 
 var hold;
 
@@ -43,33 +43,33 @@ var jump, jumpbk;
 
 function preload() {
 
-  bkk = loadImage("wp5317006.jpg");
+  bkk       = loadImage("wp5317006.jpg");
 
-  alienR = loadImage("alien 2.png");
+  alienR    = loadImage("alien 2.png");
 
-  infobk = loadImage("info.png");
+  infobk    = loadImage("info.png");
 
-  devilbk = loadImage("devil.png");
+  devilbk   = loadImage("devil.png");
 
-  skullbk = loadImage("skull.png");
+  skullbk   = loadImage("skull.png");
 
-  coinbk = loadImage("coin.png");
+  coinbk    = loadImage("coin.png");
 
-  coinbk2 = loadImage("silver.png");
+  coinbk2   = loadImage("silver.png");
 
-  coinbk3 = loadImage("bronze.png");
+  coinbk3   = loadImage("bronze.png");
 
   diamondbk = loadImage("diamond.png");
 
-  packbk = loadImage("coin.png");
+  packbk    = loadImage("coin.png");
 
-  packbk2 = loadImage("silver.png");
+  packbk2   = loadImage("silver.png");
   
-  packbk3 = loadImage("bronze.png");
+  packbk3   = loadImage("bronze.png");
 
-  packbk4 = loadImage("diamond.png");
+  packbk4   = loadImage("diamond.png");
 
-  jumpbk = loadImage("jump button.png");
+  jumpbk    = loadImage("jump button.png");
 
 
 
@@ -80,58 +80,58 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background("black");
 
-  bk = createSprite(200, 200, 400, 400);
+  bk                 = createSprite(200, 200, 400, 400);
   bk.addImage(bkk);
   //bk.scale = 0.75;
   //bk.velocityX = -5;
 
-  info = createSprite(35, 35, 10, 10);
+  info               = createSprite(35, 35, 10, 10);
   info.addImage(infobk);
   info.scale = 0.07
 
-  alien = createSprite(50, 310, 50, 50);
+  alien              = createSprite(50, 310, 50, 50);
   alien.addImage(alienR);
   alien.setCollider("rectangle", 0, 0, 65, 85, 0)
 
   //alien.debug = true
 
-  invisibleG = createSprite(60, 350, 100, 10);
+  invisibleG         = createSprite(60, 350, 100, 10);
   invisibleG.visible = false;
 
-  jump = createSprite(50, height/2 + 150, 30, 30);
+  jump               = createSprite(50, height/2 + 150, 30, 30);
   jump.addImage(jumpbk);
-  jump.scale = 0.15;
+  jump.scale         = 0.15;
   //jump.debug = true;
 
-  coinGroup = createGroup();
+  coinGroup       = createGroup();
 
-  coinGroup2 = createGroup();
+  coinGroup2      = createGroup();
 
-  coinGroup3 = createGroup();
+  coinGroup3      = createGroup();
 
-  devilGroup = createGroup();
+  devilGroup      = createGroup();
 
-  skullGroup = createGroup();
+  skullGroup      = createGroup();
 
-  diamondGroup = createGroup();
+  diamondGroup    = createGroup();
 
-  pack = createSprite(info.x + 40, info.y, 20, 20);
+  pack            = createSprite(info.x + 40, info.y, 20, 20);
   pack.addImage(packbk);
-  pack.scale = 0.25
+  pack.scale      = 0.25
 
-  pack2 = createSprite(info.x + 125, info.y, 20, 20);
+  pack2           = createSprite(info.x + 125, info.y, 20, 20);
   pack2.addImage(packbk2);
-  pack2.scale = 0.25
+  pack2.scale     = 0.25
   
-  pack3 = createSprite(info.x + 205, info.y, 20, 20);
+  pack3           = createSprite(info.x + 205, info.y, 20, 20);
   pack3.addImage(packbk3);
-  pack3.scale = 0.25
+  pack3.scale     = 0.25
 
-  pack4 = createSprite(info.x + 295, info.y, 20, 20);
+  pack4           = createSprite(info.x + 295, info.y, 20, 20);
   pack4.addImage(packbk4);
-  pack4.scale = 0.25
+  pack4.scale     = 0.25
     
-  hold = createSprite(width/2, 60,width,5);
+  hold            = createSprite(width/2, 60,width,5);
   hold.shapeColor = rgb(253, 96, 0);
 
 
@@ -181,7 +181,7 @@ function draw() {
 
 
   if (gameState === SET) {
-    packItem = 0;
+    packItem     = 0;
     bk.velocityX = 0;
 
     text("click on the alien to start", width/2 - 150, 100, fill("white"),textSize(25))
@@ -223,7 +223,7 @@ function draw() {
     Diamond();
 
     if (coinGroup.isTouching(alien)) {
-      packItem = packItem + 1
+      packItem  = packItem + 1
     }
 
     if (coinGroup2.isTouching(alien)) {
@@ -240,20 +240,21 @@ function draw() {
 
 
     if(skullGroup.isTouching(alien)){
-      gameState = END;
+      gameState       = END;
       alien.velocityY = 0;
     }
     
     if(devilGroup.isTouching(alien)){
-      score = 0;
-      packItem = 0;
+      score     = 0;
+      packItem  = 0;
       packItem2 = 0;
       packItem3 = 0;
+      packItem4 = 0;
 
     }
     
     if(alien.isTouching(hold)){
-      gameState = END;
+      gameState       = END;
       alien.velocityY = 0;
     }
 
@@ -406,7 +407,7 @@ function replay (){
   
   gameState = PLAY;
   
-  packItem = 0;
+  packItem  = 0;
 
   packItem2 = 0;
 
@@ -414,9 +415,8 @@ function replay (){
 
   packItem4 = 0;
   
-  score = 0;
+  score     = 0;
   
-  alien.y = 300;
-
+  alien.y   = 300;
   
 }
